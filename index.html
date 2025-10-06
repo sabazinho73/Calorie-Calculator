@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calorie Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h1>Calorie Calculator</h1>
+        <p class="subtitle">
+          Calculate your daily calorie needs based on your personal information
+        </p>
+
+        <form id="calorieForm">
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input
+              type="number"
+              id="age"
+              name="age"
+              min="1"
+              max="120"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label>Gender</label>
+            <div class="gender-toggle">
+              <input
+                type="radio"
+                id="male"
+                name="gender"
+                value="male"
+                required
+              />
+              <label for="male" class="gender-option">
+                <span class="gender-icon">👨</span>
+                <span>Male</span>
+              </label>
+
+              <input
+                type="radio"
+                id="female"
+                name="gender"
+                value="female"
+                required
+              />
+              <label for="female" class="gender-option">
+                <span class="gender-icon">👩</span>
+                <span>Female</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="label-with-toggle">
+              <label for="height">Height</label>
+              <div class="unit-toggle">
+                <button type="button" class="unit-btn active" data-unit="cm">
+                  cm
+                </button>
+                <button type="button" class="unit-btn" data-unit="ft">
+                  ft/in
+                </button>
+              </div>
+            </div>
+            <div id="heightInputCm" class="input-wrapper">
+              <input
+                type="number"
+                id="height"
+                name="height"
+                min="50"
+                max="300"
+                placeholder="e.g., 170"
+                required
+              />
+            </div>
+            <div id="heightInputFt" class="input-wrapper hidden">
+              <div class="dual-input">
+                <input
+                  type="number"
+                  id="heightFeet"
+                  min="3"
+                  max="9"
+                  placeholder="Feet"
+                />
+                <input
+                  type="number"
+                  id="heightInches"
+                  min="0"
+                  max="11"
+                  placeholder="Inches"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="label-with-toggle">
+              <label for="weight">Weight</label>
+              <div class="unit-toggle">
+                <button type="button" class="unit-btn active" data-unit="kg">
+                  kg
+                </button>
+                <button type="button" class="unit-btn" data-unit="lbs">
+                  lbs
+                </button>
+              </div>
+            </div>
+            <div id="weightInputKg" class="input-wrapper">
+              <input
+                type="number"
+                id="weight"
+                name="weight"
+                min="20"
+                max="500"
+                placeholder="e.g., 70"
+                required
+              />
+            </div>
+            <div id="weightInputLbs" class="input-wrapper hidden">
+              <input
+                type="number"
+                id="weightLbs"
+                min="44"
+                max="1100"
+                placeholder="e.g., 154"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="activity">Activity Level</label>
+            <select id="activity" name="activity" required>
+              <option value="">Select your activity level</option>
+              <option value="1.2">Sedentary (little or no exercise)</option>
+              <option value="1.375">Lightly Active (1-3 days/week)</option>
+              <option value="1.55">Moderately Active (3-5 days/week)</option>
+              <option value="1.725">Very Active (6-7 days/week)</option>
+              <option value="1.9">Extra Active (very intense exercise)</option>
+            </select>
+          </div>
+
+          <button type="submit" class="calculate-btn">Calculate</button>
+        </form>
+
+        <div id="results" class="results hidden">
+          <h2>Your Daily Calorie Needs</h2>
+          <div class="results-grid">
+            <div class="result-card maintain">
+              <div class="result-icon">🎯</div>
+              <h3>Maintain Weight</h3>
+              <p class="calories" id="maintain">0</p>
+              <p class="description">Calories per day</p>
+            </div>
+            <div class="result-card mild">
+              <div class="result-icon">📉</div>
+              <h3>Mild Weight Loss</h3>
+              <p class="calories" id="mild">0</p>
+              <p class="description">0.25 kg per week</p>
+            </div>
+            <div class="result-card normal">
+              <div class="result-icon">⚖️</div>
+              <h3>Normal Weight Loss</h3>
+              <p class="calories" id="normal">0</p>
+              <p class="description">0.5 kg per week</p>
+            </div>
+            <div class="result-card extreme">
+              <div class="result-icon">🔥</div>
+              <h3>Extreme Weight Loss</h3>
+              <p class="calories" id="extreme">0</p>
+              <p class="description">1 kg per week</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
